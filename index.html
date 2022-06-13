@@ -303,23 +303,39 @@ fSpider.closeOptionsPane = function () {
 };
 
 fSpider.startNewGame = function () {
-    if (fSpider.board.gameInProgress !== true || confirm("Are you sure you want to start a new game? Your current game will be replaced.") === true) {
+    //if (fSpider.board.gameInProgress !== true || confirm("Are you sure you want to start a new game? Your current game will be replaced.") === true) {
         fSpider.board.startNewGame();
         return true;
-    }
+    //}
     return false;
 };
 
 fSpider.restartGame = function () {
-    if (fSpider.board.gameInProgress === true && confirm("Are you sure you want to restart this game? Your progress will be lost.") === true) {
+    //if (fSpider.board.gameInProgress === true && confirm("Are you sure you want to restart this game? Your progress will be lost.") === true) {
         fSpider.board.restartGame();
         return true;
-    }
+    //}
     return false;
+};
+
+fSpider.restoreGame = function () {
+    if(window.localStorage.getItem("myTime")!=undefined)
+      fSpider.board.restoreGame();
+    return true;
 };
 
 $(window).load(function () {
     fSpider.init();
+    fSpider.restoreGame();
+    $('#dim-overlay').hide();
+    $('#game-ctrls-modal').hide();
+    fSpider.board.recalculateGlobalScale();
+    fSpider.board.redraw();
+    //$('#options-modal').hide();
+});
+$(window).on("visibilitychange",function () {
+    if (fSpider.board.gameInProgress === true)
+       fSpider.board.saveGame();
 });
 </script>
 </body>
