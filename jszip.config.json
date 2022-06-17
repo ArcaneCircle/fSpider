@@ -2,16 +2,18 @@
   "compressionLevel": 9,
   "dereferenceLinks": true,
   "entries": [
-    "dist/content",
-    "dist/meta",
-    "dist/scripts",
-    "dist/index.html",
-    "icon.png",
+    "index.html",
+    "sounds",
+    "img",
+    "css",
+    "js",
+    "icon.jpg",
     "manifest.toml"
   ],
   "force": true,
   "ignoreEntries": [
-    "*.map"
+    "*.map",
+    "*~"
   ],
   "mode": "add",
   "outputEntry": "dist/app.xdc",
