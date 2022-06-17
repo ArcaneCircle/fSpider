@@ -1,5 +1,11 @@
-# IntelliJ project files
+# Logs
+.pnpm-debug.log
+
+node_modules
+dist
+
+# Editor directories and files
+.vscode/*
 .idea
-*.iml
-out
-gen
+.DS_Store
+*~
