@@ -1,7 +1,7 @@
 ﻿#canvas-wrap {
     height: 100%;
     overflow: hidden;
-    background: url(art_assets/bg1.jpg) no-repeat;
+    background-color: #104e0f;
     background-size: cover;
 }
 
