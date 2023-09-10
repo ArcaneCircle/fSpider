@@ -177,19 +177,21 @@ fSpider.restartGame = function () {
 };
 
 fSpider.restoreGame = function () {
-    if(window.localStorage.getItem("myTime")!=undefined)
+    if(window.localStorage.getItem("myTime")!=undefined) {
         fSpider.board.restoreGame();
-    return true;
+        return true;
+    }
+    return false;
 };
 
 $(window).load(function () {
     fSpider.init();
-    fSpider.restoreGame();
-    $('#dim-overlay').hide();
     $('#game-ctrls-modal').hide();
+    if (!fSpider.restoreGame()) {
+        fSpider.openOptionsPane();
+    }
     fSpider.board.recalculateGlobalScale();
     fSpider.board.redraw();
-    //$('#options-modal').hide();
 });
 $(window).on("visibilitychange",function () {
     if (fSpider.board.gameInProgress === true)
